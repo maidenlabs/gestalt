@@ -22,7 +22,7 @@ To get started with Gestalt, follow these steps:
 
 2. Ensure that the `yarn` package manager is installed
     ```sh
-        npm install -g yarn
+    npm install -g yarn
     ```
 
 3. Clone the repository:
