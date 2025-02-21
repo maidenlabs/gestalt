@@ -23,17 +23,17 @@ export class AIService {
   /**
    * Generates a tweet that mimics the style of a specified Twitter user.
    * 
-   * @param likenessUsername - The username of the account to imitate
-   * @param likenessPrePrompt - System prompt defining the personality to emulate
-   * @param accountTweets - Recent tweets from the bot's account (used as blocklist)
-   * @param likenessTweets - Recent tweets from the account being imitated
+   * @param personaPrompt - System prompt defining the personality to emulate
+   * @param latestTweets - Recent tweets
    * @returns Promise resolving to the generated tweet text, or undefined if generation fails
    */
   async generateTweet(
-    likenessUsername: string,
-    likenessPrePrompt: string,
-    accountTweets: string[],
-    likenessTweets: string[]
+    personaPrompt: string,
+    latestTweets: {
+      account: string[];
+      style: string[];
+      content: string[];
+    }
   ): Promise<string | undefined> {
     logger.debug("Generating tweet...");
 
@@ -47,14 +47,19 @@ export class AIService {
         - Topics/themes (e.g., "[TopicX]", "[ThemeY]")  
         - Unique phrases (e.g., "[Signature line]")  
       3. Vary output length drastically. No emojis, quotes, or markdown.  
-      4. Start with .@${likenessUsername}  
-      5. Reference this pre-prompt: ${likenessPrePrompt}
       ====  
 
       ====  
       Voice DNA (Steal These)(tone, capitalizations, structure, jokes, themes, etc.)
       ----  
-      ${likenessTweets.join("\n")}  
+      [for persona - this is who you are. Use these tweets to create a persona for yourself. why are you saying what you're saying]
+      ${personaPrompt}
+      
+      [for style - emulate the style of the following tweets gramatically, dialetically. These are prose examples]
+      ${latestTweets.style.join("\n")}
+      
+      [for content - the subject matter and content of your tweets must come from the following examples]
+      ${latestTweets.content.join("\n")}
       ====  
 
       ====  
@@ -64,11 +69,11 @@ export class AIService {
       - First 3 words of any post (e.g., "[Topic]...")  
       - Unique phrases (e.g., "[Phrase]...")  
       - Overused themes (e.g., "[Theme]...")  
-      ${accountTweets.join("\n")}  
       ====  
+      ${latestTweets.account.join("\n")}
 
       ====
-      Only return the tweet text. Do not include any other text.
+      Only return the tweet text. Do not include any other text. No links.
       ====
     `;
 

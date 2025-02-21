@@ -30,12 +30,20 @@ async function main() {
 
   // Get user information for both the bot and target account
   const me = await xService.me();
-  const likenessId = await xService.getUserIdByScreenName(
-    Config.AGENT_LIKENESS_X_USERNAME
-  );
+
+  const [styleTarget, contentTarget] = [
+    Config.AGENT_STYLE_TARGET_USERNAME,
+    Config.AGENT_CONTENT_TARGET_USERNAME
+  ]
+
+  // Get likeness user ids
+  const [styleLikeness, contentLikeness] = await Promise.all([
+    xService.getUserIdByScreenName(styleTarget),
+    xService.getUserIdByScreenName(contentTarget),
+  ])
 
   logger.info(
-    `Imitating: ${Config.AGENT_LIKENESS_X_USERNAME} (${likenessId}) from ${me?.username} (${me?.userId})`
+    `Imitating: [style: ${styleTarget}, content ${contentTarget}] from ${me?.username} (${me?.userId})`
   );
 
   // Main tweet generation and posting loop
@@ -47,15 +55,16 @@ async function main() {
       logger.info("Beginning tweet generation cycle...");
 
       // Fetch recent tweets from both accounts
-      const myTweets = await xService.getLatestTweets(me?.userId!, 5);
-      const likenessTweets = await xService.getLatestTweets(likenessId, 5);
+      const existingTweets = {
+        account: await xService.getLatestTweets(me?.userId!, 5),
+        style: await xService.getLatestTweets(styleLikeness, 15),
+        content: await xService.getLatestTweets(contentLikeness, 15)
+      }
 
       // Generate a new tweet using AI
       const tweet = await aiService.generateTweet(
-        Config.AGENT_LIKENESS_X_USERNAME,
-        Config.AGENT_LIKENESS_PRE_PROMPT,
-        myTweets,
-        likenessTweets
+        Config.AGENT_PERSONA_PROMPT,
+        existingTweets
       );
 
       logger.info({
@@ -64,9 +73,9 @@ async function main() {
       })
 
       // Post the generated tweet if one was created
-      if (tweet) {
-        await xService.postTweet(tweet);
-      }
+      // if (tweet) {
+        // await xService.postTweet(tweet);
+      // }
     } catch (error) {
       logger.error("Error generating or posting tweet:", error);
       // Continue the loop even if an error occurs

@@ -33,8 +33,11 @@ const ConfigStruct = object({
   PROMPT_MODEL: string(),
 
   // Agent Configuration
-  AGENT_LIKENESS_X_USERNAME: string(),
-  AGENT_LIKENESS_PRE_PROMPT: string(),
+  AGENT_STYLE_TARGET_USERNAME: string(),
+  AGENT_CONTENT_TARGET_USERNAME: string(),
+  
+  // Agent Character Settings
+  AGENT_PERSONA_PROMPT: string(),
 });
 
 const Config = mask(process.env, ConfigStruct);

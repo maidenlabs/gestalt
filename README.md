@@ -53,8 +53,9 @@ PROMPT_BASE_URL=https://api.openai.com/v1 # or any other provider that support t
 PROMPT_MODEL=text-davinci-003 # or any other model you'd like to use that is supported by the provider
 
 # Agent Personality Settings
-AGENT_LIKENESS_X_USERNAME=target_twitter_username
-AGENT_LIKENESS_PRE_PROMPT=system_prompt_for_ai
+AGENT_PERSONA_PROMPT=target_twitter_username
+AGENT_STYLE_TARGET_USERNAME=target_twitter_username
+AGENT_CONTENT_TARGET_USERNAME=system_prompt_for_ai
 ```
 
 ## Development
