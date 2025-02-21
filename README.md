@@ -17,7 +17,7 @@ Gestalt is an X bot that uses AI to generate tweets that mimic the style of spec
 
 ## Cloud Deployment
 
-A one-click installer to gestalt in the cloud.
+A one-click installer to gestalt in the cloud. You must have a paid cloud account on the service (~$5 USD/mo). Once on the cloud the bot will post on your behalf.
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/qdNZ-m)
 
