@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { assert, object, string, optional, mask, coerce, number } from "superstruct";
+import { assert, object, string, optional, mask, coerce, number, enums } from "superstruct";
 
 // Required to bring in vars from env
 dotenv.config();
@@ -29,8 +29,7 @@ const ConfigStruct = object({
 
   // API Configuration
   PROMPT_API_KEY: string(),
-  PROMPT_BASE_URL: string(),
-  PROMPT_MODEL: string(),
+  PROMPT_SERVICE: enums(["DEEPSEEK", "CHATGPT"]),
 
   // Agent Configuration
   AGENT_STYLE_TARGET_USERNAME: string(),

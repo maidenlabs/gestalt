@@ -67,8 +67,7 @@ TWITTER_EMAIL=your_twitter_email
 
 # API Configuration
 PROMPT_API_KEY=your_llm_key
-PROMPT_BASE_URL=https://api.openai.com/v1 # or any other provider that support the OpenAI standard (deepseek, openrouter, etc)
-PROMPT_MODEL=text-davinci-003 # or any other model you'd like to use that is supported by the provider
+PROMPT_SERVICE=DEEPSEEK_or_CHATGPT
 
 # Timing Configuration
 MINUTE_DELAY_BETWEEN_TWEETS=integer

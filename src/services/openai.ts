@@ -3,6 +3,14 @@ import Config from "../config/env";
 import logger from "../utils/logger";
 
 /**
+ * Base URL lookup for OpenAI API based on the service type.
+ */
+const PROVIDER_CONFIGS = {
+  DEEPSEEK: { BASE_URL: "https://api.deepseek.com/v1", MODEL: "deepseek-reasoner" },
+  CHATGPT: { BASE_URL: "https://api.openai.com/v1", MODEL: "gpt-4o" },
+};
+
+/**
  * Service for handling AI-powered text generation using OpenAI's API.
  * Manages connection to OpenAI and provides methods for generating tweet content.
  */
@@ -15,7 +23,7 @@ export class AIService {
    */
   constructor() {
     this.client = new OpenAI({
-      baseURL: Config.PROMPT_BASE_URL,
+      baseURL: PROVIDER_CONFIGS[Config.PROMPT_SERVICE].BASE_URL,
       apiKey: Config.PROMPT_API_KEY,
     });
   }
@@ -78,7 +86,7 @@ export class AIService {
     `;
 
     const msg = await this.client.chat.completions.create({
-      model: Config.PROMPT_MODEL,
+      model: PROVIDER_CONFIGS[Config.PROMPT_SERVICE].MODEL,
       max_tokens: 4096,
       messages: [
         {
