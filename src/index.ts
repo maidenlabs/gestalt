@@ -44,6 +44,8 @@ async function main() {
     await minutesDelay(Config.MINUTE_DELAY_BETWEEN_TWEETS ?? 30);
 
     try {
+      logger.info("Beginning tweet generation cycle...");
+
       // Fetch recent tweets from both accounts
       const myTweets = await xService.getLatestTweets(me?.userId!, 5);
       const likenessTweets = await xService.getLatestTweets(likenessId, 5);
@@ -55,6 +57,11 @@ async function main() {
         myTweets,
         likenessTweets
       );
+
+      logger.info({
+        message: "Generated tweet",
+        tweet,
+      })
 
       // Post the generated tweet if one was created
       if (tweet) {

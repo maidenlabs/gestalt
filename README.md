@@ -82,7 +82,7 @@ To build and run the application using Docker, follow these steps:
 
 2. Run the Docker container:
     ```sh
-    docker run --env-file .env gestalt-app
+    docker run -it --env-file .env gestalt-app
     ```
 
 ## License

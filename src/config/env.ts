@@ -1,8 +1,21 @@
 import dotenv from "dotenv";
-import { assert, object, string, optional, mask, number } from "superstruct";
+import { assert, object, string, optional, mask, coerce, number } from "superstruct";
 
 // Required to bring in vars from env
 dotenv.config();
+
+// Define a custom struct to coerce the string to a number and validate it as a positive integer
+const PositiveInteger = coerce(
+  number(),
+  string(),
+  (value) => {
+    const coercedValue = Number(value);
+    if (Number.isInteger(coercedValue) && coercedValue > 0) {
+      return coercedValue;
+    }
+    throw new Error("Must be a positive integer");
+  }
+);
 
 // Define the structure of our config
 const ConfigStruct = object({
@@ -12,7 +25,7 @@ const ConfigStruct = object({
   TWITTER_EMAIL: optional(string()),
 
   // Timing Parameters
-  MINUTE_DELAY_BETWEEN_TWEETS: optional(number()),
+  MINUTE_DELAY_BETWEEN_TWEETS: optional(PositiveInteger),
 
   // API Configuration
   PROMPT_API_KEY: string(),
