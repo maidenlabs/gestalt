@@ -67,9 +67,9 @@ PROMPT_MODEL=text-davinci-003 # or any other model you'd like to use that is sup
 MINUTE_DELAY_BETWEEN_TWEETS=integer
 
 # Agent Personality Settings
-AGENT_PERSONA_PROMPT=target_twitter_username
+AGENT_PERSONA_PROMPT=system_prompt_for_ai
 AGENT_STYLE_TARGET_USERNAME=target_twitter_username
-AGENT_CONTENT_TARGET_USERNAME=system_prompt_for_ai
+AGENT_CONTENT_TARGET_USERNAME=target_twitter_username
 ```
 
 ## Development
