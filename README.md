@@ -3,6 +3,7 @@
 Gestalt is an X bot that uses AI to generate tweets that mimic the style of specified Twitter users. It continuously fetches recent tweets, generates new content, and posts the generated tweets.
 
 ![image](https://github.com/user-attachments/assets/e149e8f7-0845-441e-8279-fdaaa2a64bbf)
+(Disclaimer: this is purely an example. We did not/will not deploy @stoolfang)
 
 
 ## Table of Contents
