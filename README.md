@@ -52,6 +52,9 @@ PROMPT_API_KEY=your_llm_key
 PROMPT_BASE_URL=https://api.openai.com/v1 # or any other provider that support the OpenAI standard (deepseek, openrouter, etc)
 PROMPT_MODEL=text-davinci-003 # or any other model you'd like to use that is supported by the provider
 
+# Timing Configuration
+MINUTE_DELAY_BETWEEN_TWEETS=integer
+
 # Agent Personality Settings
 AGENT_PERSONA_PROMPT=target_twitter_username
 AGENT_STYLE_TARGET_USERNAME=target_twitter_username
