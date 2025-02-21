@@ -1,6 +1,6 @@
 # Gestalt
 
-Gestalt is an X bot that uses AI to generate tweets that mimic the style of a specified Twitter user. It continuously fetches recent tweets, generates new content using OpenAI, and posts the generated tweets.
+Gestalt is an X bot that uses AI to generate tweets that mimic the style of specified Twitter users. It continuously fetches recent tweets, generates new content, and posts the generated tweets.
 
 ![image](https://github.com/user-attachments/assets/e149e8f7-0845-441e-8279-fdaaa2a64bbf)
 
@@ -17,7 +17,7 @@ Gestalt is an X bot that uses AI to generate tweets that mimic the style of a sp
 
 To get started with Gestalt, follow these steps:
 
-1. Ensure that [git](https://git-scm.com/) and that [NodeJS v22](https://nodejs.org/en/download) is installed. 
+1. Ensure that [git](https://git-scm.com/) and that [NodeJS v22](https://nodejs.org/en/download) are installed. 
 
 2. Ensure that the `yarn` package manager is installed
     ```sh
