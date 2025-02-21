@@ -8,11 +8,18 @@ Gestalt is an X bot that uses AI to generate tweets that mimic the style of spec
 
 ## Table of Contents
 
+- [Cloud Deployment](#cloud-deployment)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Development](#development)
 - [License](#license)
+
+## Cloud Deployment
+
+A one-click installer to gestalt in the cloud.
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/jfKqs-)
 
 ## Installation
 
