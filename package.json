@@ -1,0 +1,23 @@
+{
+  "name": "gestalt",
+  "version": "0.0.1",
+  "author": "Maiden Labs {0xmelk}",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "agent-twitter-client": "^0.0.18",
+    "dotenv": "^16.4.7",
+    "openai": "^4.84.0",
+    "superstruct": "^2.0.2",
+    "winston": "^3.17.0"
+  },
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
