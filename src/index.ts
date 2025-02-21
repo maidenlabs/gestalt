@@ -32,8 +32,8 @@ async function main() {
   const me = await xService.me();
 
   const [styleTarget, contentTarget] = [
-    Config.AGENT_STYLE_TARGET_USERNAME,
-    Config.AGENT_CONTENT_TARGET_USERNAME
+    Config.AGENT_STYLE_TARGET_USERNAME.replace("@", ""),
+    Config.AGENT_CONTENT_TARGET_USERNAME.replace("@", ""),
   ]
 
   // Get likeness user ids
