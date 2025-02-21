@@ -73,9 +73,9 @@ async function main() {
       })
 
       // Post the generated tweet if one was created
-      // if (tweet) {
-        // await xService.postTweet(tweet);
-      // }
+      if (tweet) {
+        await xService.postTweet(tweet);
+      }
     } catch (error) {
       logger.error("Error generating or posting tweet:", error);
       // Continue the loop even if an error occurs
