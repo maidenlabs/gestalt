@@ -22,18 +22,25 @@ on Railway.
 
 To get started with Gestalt, follow these steps:
 
-1. Clone the repository:
+1. Ensure that [git](https://git-scm.com/) and the [Node Version Manager](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) is installed. 
+
+2. Ensure that the `yarn` package manager is installed
+    ```sh
+        npm install -g yarn
+    ```
+
+3. Clone the repository:
     ```sh
     git clone https://github.com/maidenlabs/gestalt.git
     cd gestalt
     ```
 
-2. Install the dependencies:
+4. Install the dependencies:
     ```sh
     yarn install
     ```
 
-3. Create a `.env` file based on the `.env.example` file and fill in the required values:
+5. Create a `.env` file based on the `.env.example` file and fill in the required values:
     ```sh
     cp .env.example .env
     ```
