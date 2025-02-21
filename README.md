@@ -14,7 +14,7 @@ Gestalt is an X bot that uses AI to generate tweets that mimic the style of a sp
 
 To get started with Gestalt, follow these steps:
 
-1. Ensure that [git](https://git-scm.com/) and the [Node Version Manager](https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating) is installed. 
+1. Ensure that [git](https://git-scm.com/) and that [NodeJS v22](https://nodejs.org/en/download) is installed. 
 
 2. Ensure that the `yarn` package manager is installed
     ```sh
