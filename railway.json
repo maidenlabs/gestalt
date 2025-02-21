@@ -1,0 +1,40 @@
+{
+    "build": {
+      "dockerfilePath": "./Dockerfile"
+    },
+    "deploy": {
+      "startCommand": "yarn start"
+    },
+    "env": {
+      "TWITTER_USERNAME": {
+        "description": "Your Twitter username"
+      },
+      "TWITTER_PASSWORD": {
+        "description": "Your Twitter password"
+      },
+      "TWITTER_EMAIL": {
+        "description": "Your Twitter email (optional)"
+      },
+      "PROMPT_API_KEY": {
+        "description": "Your LLM API key"
+      },
+      "PROMPT_BASE_URL": {
+        "description": "Base URL for the API endpoints"
+      },
+      "PROMPT_MODEL": {
+        "description": "Model identifier for the specific model to use"
+      },
+      "MINUTE_DELAY_BETWEEN_TWEETS": {
+        "description": "How often to wait between posts (in minutes)"
+      },
+      "AGENT_STYLE_TARGET_USERNAME": {
+        "description": "X username to emulate for tweet style"
+      },
+      "AGENT_CONTENT_TARGET_USERNAME": {
+        "description": "X username to emulate for tweet content"
+      },
+      "AGENT_PERSONA_PROMPT": {
+        "description": "System prompt that defines the agent's personality and behavior"
+      }
+    }
+  }
