@@ -1,20 +1,9 @@
 /**
- * Delays execution until the next N-minute boundary
- * @param minutes The number of minutes to wait (e.g., 60 for hourly, 15 for quarter-hourly)
+ * Delays execution for the specified number of minutes
+ * @param minutes The number of minutes to wait
  * @returns Promise that resolves when the delay is complete
  */
 export async function minutesDelay(minutes: number): Promise<void> {
-    const now = new Date();
-    const next = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      now.getHours(),
-      Math.ceil(now.getMinutes() / minutes) * minutes,
-      0,
-      0
-    );
-    
-    const delay = next.getTime() - Date.now();
-    await new Promise((resolve) => setTimeout(resolve, delay));
-  }
+  const delay = minutes * 60 * 1000; // Convert minutes to milliseconds
+  await new Promise((resolve) => setTimeout(resolve, delay));
+}
